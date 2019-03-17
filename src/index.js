@@ -1,8 +1,10 @@
-import express from 'express';
-// const express = require('express');
+// import express from 'express';
+const express = require('express');
 
 const app = express();
+const port = 3000;
 
-app.listen(300, () =>
-  console.log('listening on port 3000!'),
-);
+app.get('/', (req, res) => res.send('hello World!'))
+
+app.listen(port, () =>
+  console.log(`listening on port ${port}`));
