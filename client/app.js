@@ -1,49 +1,53 @@
-class GroceryListItem extends React.Component {
-  constructor(props) {
+import React from 'react';
+import Spotlight from './spotlight.jsx';
+import AddCow from './addCow.js';
+import Herd from './herd.jsx';
+
+// the parent
+// contains the child modules Spotlight, AddCow, and Herd
+
+class CowList extends React.Component {
+  constuctor(props) {
     super(props);
     this.state = {
-      bold: false
-    };
-    this.onListItemIn = this.onListItemIn.bind(this);
-    this.onListItemOut = this.onListItemOut.bind(this);
+      /*
+      addCow needs to send data to db and reset the text fields
+      herd needs display clicked cows in the spotlight
+      */
+    }
   }
 
-  onListItemIn() {
+  handleSubmit(e){
+
     this.setState({
-      bold: true
-    });
+      /*
+      addCow needs to send data to db and reset the text fields
+      */
+    })
   }
 
-  onListItemOut() {
+  handleClick(e) {
+
     this.setState({
-      bold: false
-    });
+      /*
+      herd needs display clicked cows in the spotlight
+      */
+    })
   }
+
 
   render() {
-    var style = {
-      fontWeight: this.state.bold ? 'bold' : 'normal'
-    };
-
-    return(
-      <li style={style} onMouseEnter={this.onListItemIn}
-      onMouseLeave={this.onListItemOut}>{this.props.item}</li>
+    return (
+      <div>
+        <Spotlight />
+        <AddCow />
+        <Herd />
+      </div>
     )
   }
 }
 
-var GroceryList = () => (
-  <div>
-    <h2>My Grocery List</h2>
-    <Groceries items={['eggs', 'bacon', 'juice']}/>
-  </div>
-);
 
-var Groceries = (props) => (
-  <ul>
-    {props.items.map(item => <GroceryListItem item={item} />
-    )}
-  </ul>
-);
+export default CowList;
 
-ReactDOM.render(<GroceryList />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app' ));
