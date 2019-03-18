@@ -1,5 +1,5 @@
 import React from 'react';
-import AddCow from './addCow.js';
+import AddCow from './addCow.jsx';
 import Cow from './cow.js'
 
 // child of App

@@ -9,8 +9,6 @@ class Cow extends React.Component {
 
   }
 
-
-
   render() {
     return (
       <li onClick={/* handleClick */}>{this.props.cow.cowname}</li>

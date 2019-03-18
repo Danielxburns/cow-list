@@ -7,8 +7,7 @@ import Cow from './cow';
 
 
 var Spotlight = (props) => (
-
-  <div>{props.Cow.cowname} {props.Cow.descript}</div>
+  <div>{/* props.Cow.cowname */} {/* props.Cow.descript */}</div>
 )
 
 export default Spotlight;
