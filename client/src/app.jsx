@@ -1,13 +1,13 @@
 import React from 'react';
-import Spotlight from './spotlight.js';
-import AddCow from './addCow.js';
-import Herd from './herd.js';
+// import Spotlight from './spotlight.jsx/index.js';
+// import AddCow from './addCow.jsx';
+// import Herd from './herd.jsx/index.js';
 
 // the parent
 // contains the child modules Spotlight, AddCow, and Herd
 
 class CowList extends React.Component {
-  constuctor(props) {
+  constructor(props) {
     super(props);
     this.state = {
       /*
@@ -37,10 +37,10 @@ class CowList extends React.Component {
 
   render() {
     return (
-      <div>
-        <Spotlight />
+      <div>this is the cow List
+        {/* <Spotlight />
         <AddCow />
-        <Herd />
+        <Herd /> */}
       </div>
     )
   }
