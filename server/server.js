@@ -16,8 +16,8 @@ connection.connect(function (err) {
 // SERVER SET UP
 var app = express()
 var port = 3000;
-app.listen(port, () =>
-console.log(`listening on port ${port}`));
+
+app.use('/', express.static(__dirname + '/../client/dist'))
 
 app.use(parser.urlencoded({
   extended: true
@@ -25,7 +25,7 @@ app.use(parser.urlencoded({
 app.use(parser.json())
 
 app.get('/api/cows', (req, res) => {
-    connection.query('select * from herd', function(err, result) {
+  connection.query('select * from herd', function(err, result) {
     console.log(req.body);
     // console.log(`inside get result =${JSON.stringify(result)}`);
     res.send(result)
@@ -43,8 +43,10 @@ app.post('/api/cows', (req, res) => {
     function (err, result) {
       console.log('POST result =' + JSON.stringify(result));
       res.json(req.body)
-    // res.send('Cow added to herd with: ' + JSON.stringify(req.body));
-  })
-});
+      // res.send('Cow added to herd with: ' + JSON.stringify(req.body));
+    })
+  });
 
+  app.listen(port, () =>
+  console.log(`listening on port ${port}`));
 
