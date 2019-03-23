@@ -10,7 +10,7 @@ var AddCow = (props) => (
     <h2>Add a cow to the herd</h2>
     <form>
       <input type="text" /* handle change *//>
-      <input type="submit" /* handle click */name="ADD A COW, MAN!" />
+      <input type="submit" name="addCow"/* handle click */text="ADD A COW, MAN!" />
     </form>
   </div>
 )
