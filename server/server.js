@@ -26,8 +26,12 @@ app.use(parser.json())
 
 app.get('/api/cows', (req, res) => {
   connection.query('select * from herd', function(err, result) {
-    console.log(req.body);
-    // console.log(`inside get result =${JSON.stringify(result)}`);
+    if (err) {
+      console.log(`query error=${err}`);
+      return;
+    }
+    console.log(`inside get query =${JSON.stringify(result)}`);
+    // connection.end();
     res.send(result)
   })
 });

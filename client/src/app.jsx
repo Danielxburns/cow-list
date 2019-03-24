@@ -11,7 +11,6 @@ class CowList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      testCows: ['John', 'Paul', 'George', 'Ringo'],
       cows: []
       /*
       addCow needs to send data to db and reset the text fields
@@ -28,8 +27,8 @@ class CowList extends React.Component {
       responseType: 'application/json'
     })
     .then(res => {
-      console.log(`GET response=${JSON.parse(res.body)}`);
-      // this.setState({ cows: JSON.parse(res.body)})
+      this.setState({ cows: res.data })
+      console.log(`CowList.state.cows=${JSON.stringify(this.state.cows)}`)
     })
     .catch(err => {
       console.log(`GET error=${err}`);
@@ -80,7 +79,7 @@ class CowList extends React.Component {
         <h1 style={{textAlign: "center"}}>Cow List</h1>
         <Spotlight />
         <AddCow />
-        <Herd testCows={this.state.testCows}/>
+        <Herd cows={this.state.cows}/>
       </div>
     )
   }

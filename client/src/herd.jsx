@@ -10,7 +10,7 @@ class Herd extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      testCows: ['John', 'Paul', 'George', 'Ringo']
+
     }
   }
 
@@ -18,9 +18,8 @@ class Herd extends React.Component {
     return (
     <div>
       <h4>The Herd</h4>
-      <ul>
-      {this.state.testCows.map((cowName) => (
-        <li>{cowName}</li>
+      <ul>{this.props.cows.map((cow) => (
+        <li key={cow.id}>{cow.cowname}</li>
       ))}
       </ul>
     </div>
