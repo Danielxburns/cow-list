@@ -11,7 +11,9 @@ class CowList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cows: []
+      cows: [],
+      newCowName: '',
+      newCowDesript: ''
       /*
       addCow needs to send data to db and reset the text fields
       herd needs display clicked cows in the spotlight
@@ -55,15 +57,6 @@ class CowList extends React.Component {
   }
 
 
-  handleSubmit(e){
-
-    this.setState({
-      /*
-      addCow needs to send data to db and reset the text fields
-      */
-    })
-  }
-
   handleClick(e) {
 
     this.setState({
@@ -78,7 +71,7 @@ class CowList extends React.Component {
       <div>
         <h1 style={{textAlign: "center"}}>Cow List</h1>
         <Spotlight />
-        <AddCow />
+        <AddCow /* handleSubmit={this.handleSubmit} *//>
         <Herd cows={this.state.cows}/>
       </div>
     )
