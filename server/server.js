@@ -30,22 +30,21 @@ app.get('/api/cows', (req, res) => {
       console.log(`query error=${err}`);
       return;
     }
-    console.log(`inside get query =${JSON.stringify(result)}`);
-    // connection.end();
+    // console.log(`inside get query =${JSON.stringify(result)}`);
     res.send(result)
   })
 });
 
 app.post('/api/cows', (req, res) => {
   // req.body = JSON.parse(req.body);
-  // console.log(req.body)
+  console.log(`POST request recieved ${req.body}`)
   var param = [req.body.cowname, req.body.descript];
   // console.log(param);
   var queryString = 'INSERT INTO herd(cowname, descript) VALUES (?, ?)';
   // var queryString = 'INSERT INTO herd VALUES (default, "steve", "some other guy")';
   connection.query(queryString , param,
     function (err, result) {
-      console.log('POST result =' + JSON.stringify(result));
+      // console.log('POST result =' + JSON.stringify(result));
       res.json(req.body)
       // res.send('Cow added to herd with: ' + JSON.stringify(req.body));
     })

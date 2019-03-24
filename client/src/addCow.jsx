@@ -1,9 +1,6 @@
 import React from 'react';
+import axios from 'axios';
 
-// child of App
-// contains a text input for a cowname and another for descript, plus a submit button
-// on submit, cowname and descript must be sent to the database, then returned, and sent to cow.jsx to be rendered in the Herd
-// handleChange and handleClick are defined in App
 
 class AddCow extends React.Component {
   constructor(props) {
@@ -27,15 +24,13 @@ class AddCow extends React.Component {
     }
   }
 
-  handleSubmit(e, state) {
-    e.preventDefault();
-    console.log(`NEWCOW =${JSON.stringify(this.state)}`)
-
-    // this.setState({
-    //   /*
-    //   addCow needs to send data to db and reset the text fields
-    //   */
-    // })
+  handleSubmit() {
+    axios({
+      method: 'post',
+      url: '/api/cows',
+      data: this.state,
+      dataType: 'application/json'
+    })
   }
 
   render(props) {
